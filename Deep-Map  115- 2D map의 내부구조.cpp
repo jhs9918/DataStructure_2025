@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// ´ÙÁß map¿¡¼­ key°ªÀ» Ã£¾Æ³»±â. ¸Å¿ì Áß¿äÇÑ ÀÛ¾÷. ±â¸»°í»ç¿¡ À¯»çÇÑ ¹®Á¦ ³ª¿È,.
+// Â´Ã™ÃÃŸ mapÂ¿Â¡Â¼Â­ keyÂ°ÂªÃ€Â» ÃƒÂ£Â¾Ã†Â³Â»Â±Ã¢. Â¸Ã…Â¿Ã¬ ÃÃŸÂ¿Ã¤Ã‡Ã‘ Ã€Ã›Â¾Ã·. Â±Ã¢Â¸Â»Â°Ã­Â»Ã§Â¿Â¡ Ã€Â¯Â»Ã§Ã‡Ã‘ Â¹Â®ÃÂ¦ Â³ÂªÂ¿Ãˆ,.
 
 int main() {
 
@@ -19,7 +19,7 @@ int main() {
     w[ 9][-3]= "Quaga" ;
 
     for( auto p : w ) {
-      map<int,string> & inner_map= p.second ; // p´Â ¶Ç ÇÏ³ªÀÇ mapÀÔ´Ï´Ù.
+      map<int,string> & inner_map= p.second ; // pÂ´Ã‚ Â¶Ã‡ Ã‡ÃÂ³ÂªÃ€Ã‡ mapÃ€Ã”Â´ÃÂ´Ã™.
       for (auto it2: inner_map ) {
             cout << "\n w[ " <<  p.first << "," << it2.first << " ]= " << it2.second;
       }
