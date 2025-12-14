@@ -18,7 +18,7 @@ class SplayTree {
 private:
     Node* root;
 
-    // 오른쪽 회전 (Zig)
+    // Right rotation (Zig)
     Node* rightRotate(Node* x) {
         Node* y = x->left;
         x->left = y->right;
@@ -32,7 +32,7 @@ private:
         return y;
     }
 
-    // 왼쪽 회전 (Zag)
+    // Left rotation (Zag)
     Node* leftRotate(Node* x) {
         Node* y = x->right;
         x->right = y->left;
@@ -46,7 +46,7 @@ private:
         return y;
     }
 
-    // Splay 연산: 노드를 루트로 이동
+    // Splay operation: move node to root
     void splay(Node* x) {
         while (x->parent) {
             if (!x->parent->parent) {
@@ -77,7 +77,7 @@ private:
         }
     }
 
-    // BST 삽입 (splay 없이)
+    // BST insertion (without splay)
     Node* insertBST(Node* node, int key) {
         if (!node) return new Node(key);
 
@@ -95,7 +95,7 @@ private:
         return node;
     }
 
-    // 특정 key를 가진 노드 찾기
+    // Find node with specific key
     Node* find(Node* node, int key) {
         if (!node) return nullptr;
         if (node->key == key) return node;
@@ -103,7 +103,7 @@ private:
         return find(node->right, key);
     }
 
-    // 트리 시각화
+    // Tree visualization
     void printHelper(Node* node, string prefix, bool isLeft) {
         if (!node) return;
 
@@ -127,7 +127,7 @@ private:
 public:
     SplayTree() : root(nullptr) {}
 
-    // 삽입 + Splay
+    // Insert + Splay
     void insert(int key) {
         if (!root) {
             root = new Node(key);
@@ -141,7 +141,7 @@ public:
         }
     }
 
-    // 트리 출력
+    // Print tree
     void printTree() {
         if (!root) {
             cout << "(empty tree)" << endl;
@@ -159,7 +159,7 @@ public:
         }
     }
 
-    // Inorder 순회 (정렬 확인용)
+    // Inorder traversal (for checking order)
     void inorder(Node* node) {
         if (!node) return;
         inorder(node->left);
@@ -180,13 +180,13 @@ int main() {
     cout << "========================================" << endl;
     cout << "     Splay Tree Visualizer" << endl;
     cout << "========================================" << endl;
-    cout << "\n데이터를 입력하면 각 삽입 단계별로" << endl;
-    cout << "트리 구조를 시각화하여 보여줍니다.\n" << endl;
+    cout << "\nEnter data and visualize the tree structure" << endl;
+    cout << "at each insertion step.\n" << endl;
 
-    cout << "입력 방법을 선택하세요:" << endl;
-    cout << "  1. 한 줄에 여러 개 입력 (예: 10 5 15 3 7)" << endl;
-    cout << "  2. 하나씩 입력 (0 입력 시 종료)" << endl;
-    cout << "\n선택: ";
+    cout << "Select input method:" << endl;
+    cout << "  1. Multiple values in one line (e.g., 10 5 15 3 7)" << endl;
+    cout << "  2. One by one (enter 0 to quit)" << endl;
+    cout << "\nChoice: ";
 
     int choice;
     cin >> choice;
@@ -194,7 +194,7 @@ int main() {
     SplayTree tree;
 
     if (choice == 1) {
-        cout << "\n숫자들을 공백으로 구분하여 입력: ";
+        cout << "\nEnter numbers separated by spaces: ";
         cin.ignore();
         string line;
         getline(cin, line);
@@ -213,7 +213,7 @@ int main() {
         }
     }
     else {
-        cout << "\n숫자를 하나씩 입력하세요 (0 입력 시 종료)" << endl;
+        cout << "\nEnter numbers one by one (enter 0 to quit)" << endl;
         int num;
         int step = 1;
 
@@ -233,7 +233,7 @@ int main() {
     }
 
     cout << "\n" << string(50, '=') << endl;
-    cout << "최종 트리 구조" << endl;
+    cout << "Final Tree Structure" << endl;
     cout << string(50, '=') << endl;
     tree.printTree();
     cout << endl;
