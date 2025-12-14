@@ -108,11 +108,11 @@ private:
         if (!node) return;
 
         cout << prefix;
-        cout << (isLeft ? "├─L: " : "└─R: ");
+        cout << (isLeft ? "|--L: " : "+--R: ");
         cout << node->key << endl;
 
         if (node->left || node->right) {
-            string newPrefix = prefix + (isLeft ? "│    " : "     ");
+            string newPrefix = prefix + (isLeft ? "|    " : "     ");
 
             if (node->left) {
                 printHelper(node->left, newPrefix, true);
